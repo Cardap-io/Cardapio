@@ -1,0 +1,17 @@
+div.logo{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+}
+
+div.logo img{
+    width: 100%;
+}
+
+@media(max-width:576px){
+    div.logo img{
+        padding-left: 15%;
+        width:70%;
+    }
+}
