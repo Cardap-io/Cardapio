@@ -1,9 +1,19 @@
-export const TOKEN_KEY = "@cardapio-Token";
-export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
-export const getToken = () => localStorage.getItem(TOKEN_KEY);
-export const login = token => {
-  localStorage.setItem(TOKEN_KEY, token);
-};
-export const logout = () => {
-  localStorage.removeItem(TOKEN_KEY);
+class Auth {
+  constructor() {
+    this.user_token = JSON.parse(localStorage.getItem('auth'))||{}
+  }
+  getToken() {
+    return this.user_token.token
+  }
+  getUserId() {
+    return this.user_token.user_id
+  }
+  setUserToken(new_token) {
+    this.user_token = new_token
+    localStorage.setItem('auth', JSON.stringify(new_token))
+  }
+  logout() {
+    localStorage.removeItem('auth')
+  }
 }
+export default new Auth()
