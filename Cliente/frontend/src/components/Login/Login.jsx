@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import Main from '../template/Main'
 import Logo from '../template/Logo'
-import Footer from '../template/Footer'
 
 const baseURL = 'http://localhost:3001/users'
 
@@ -91,7 +90,6 @@ export default class Login extends Component {
                 <Main>
                     {this.renderForm()}
                 </Main>
-                <Footer/>
             </React.Fragment>
             )
     }
