@@ -24,7 +24,7 @@ export const getCheckoutUrl = (cartId) => dispatch => {
     })
 }
 
-export const getPayment = (paymentId, PayerID) => dispatch => {
+/*export const getPayment = (paymentId, PayerID) => dispatch => {
   dispatch({
     type: GET_PAYMENT_BEGIN,
   })
@@ -57,7 +57,7 @@ export const getPayment = (paymentId, PayerID) => dispatch => {
       return error
     })
 }
-
+*/
 
 export const GET_PAYMENT_BEGIN = 'GET_PAYMENT_BEGIN'
 export const GET_PAYMENT_SUCCESS = 'GET_PAYMENT_SUCCESS'

@@ -1,77 +1,48 @@
 {
-        "Produtos":
-        [ {
-                "Categoria":"Entradas",
-                "Itens":[
-                {
-                    "ID":1,
-                    "Nome_do_item": "Batata Rústica",
-                    "Descricao": "Porção de Batata cortadas com casca rusticamente e fritas",
-                    "Preco": 15.00
-                },
-                {
-                    "ID":2,
-                    "Nome_do_item": "Nugets 10 Unidades",
-                    "Descricao": "Peito de frango empanado e frito",
-                    "Preco": 18.00
-                }
-            ]},{
-            "Categoria":"Lanches",
-            "Itens": [
-                {
-                    "ID":3,
-                    "Nome_do_item": "Australiano",
-                    "Descricao": "Pão Australiano, Hamburguer de 200 grms, Queijo Cheddar e cebola caramelada",
-                    "Preco": 20.00
-                },
-                {
-                    "ID":4,
-                    "Nome_do_item": "Picanha",
-                    "Descricao": "Pão de cebola",
-                    "Preco": 22.00
-                },
-                {
-                    "ID":5,
-                    "Nome_do_item": "Frango",
-                    "Descricao": "Pão de Brioche, Hamburguer de frango de 180 grms, maionese da casa, alface americana,tomate e queijo provolone",
-                    "Preco": 18.00
-                },
-                {
-                    "ID":6,
-                    "Nome_do_item": "Super Pig",
-                    "Descricao": "Pão de Hamburguer tradicional, molho barbecue, catupiry, bacon e picles",
-                    "Preco": 22.00
-                }
-            ]},{
-            "Categoria":"Sobremesas",
-            "Itens": [
-                {
-                    "ID":7,
-                    "Nome_do_item": "Pudim de café",
-                    "Descricao": "Pudim de café feito na caneca com calda de caramelo",
-                    "Preco": 15.00
-                },
-                {
-                    "ID":8,
-                    "Nome_do_item": "Petit Gateu",
-                    "Descricao": "Mini bolo com recheio cremoso de chocolate, servido com sorvete de creme",
-                    "Preco": 18.00
-                }
-            ]},{
-            "Categoria":"Bebidas",
-            "Itens": [
-                {
-                    "ID":9,
-                    "Nome_do_item": "Coca-cola",
-                    "Descricao": "Coca-cola 600ml",
-                    "Preco": 4.00
-                },
-                {
-                    "ID":10,
-                    "Nome_do_item": "IPA",
-                    "Descricao": "Cerveja de alta fermentação puro malte, 400 ml",
-                    "Preco": 10.00
-                }
-            ]
-        }]
+    "id": "5dc732d60e0e024c7b7334de",
+    "nome": "Outro",
+    "produtos": [
+        {
+            "id": "5dc7334e0e0e024c7b7334e1",
+            "nome": "Eric",
+            "descricao": "Safadao",
+            "valor": "100000.00",
+            "categoria": "ENTRADA"
+        },
+        {
+            "id": "5dc73bde0e0e02142c137f43",
+            "nome": "Eric",
+            "descricao": "Safadao",
+            "valor": "100000.00",
+            "categoria": "ENTRADA"
+        },
+        {
+            "id": "5dc73bee0e0e02142c137f44",
+            "nome": "Eric",
+            "descricao": "Safadao",
+            "valor": "100000.00",
+            "categoria": "ENTRADA"
+        },
+        {
+            "id": "5dc73c000e0e02142c137f45",
+            "nome": "teste",
+            "descricao": "TESTE",
+            "valor": "100000.00",
+            "categoria": "SOBREMESA"
+        },
+        {
+            "id": "5dc73d280e0e021e60529b8f",
+            "nome": "teste",
+            "descricao": "TESTE",
+            "valor": "100000.00",
+            "categoria": "SOBREMESA"
+        },
+        {
+            "id": "5dc73f240e0e022cbd7f6f86",
+            "nome": "teste",
+            "descricao": "TESTE",
+            "valor": "100000.00",
+            "categoria": "SOBREMESA"
+        }
+    ]
 }
