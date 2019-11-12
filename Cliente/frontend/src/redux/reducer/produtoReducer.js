@@ -17,9 +17,8 @@ import {
   } from '../action/produtoAction'
   
   const initialState = {
-    products: null,
-    product: null,
-    loading: false,
+    produtos: null,
+    produto: null,
     error: null,
   }
   
@@ -35,7 +34,7 @@ import {
         return {
           ...state,
           loading: false,
-          products: action.payload.data.products
+          produtos: action.payload.data.produtos
         }
       case GET_ALL_PRODUCTS_FAIL:
         return {
@@ -53,7 +52,7 @@ import {
         return {
           ...state,
           loading: false,
-          product: action.payload.data.product
+          produto: action.payload.data.produto
         }
       case GET_PRODUCT_FAIL:
         return {
@@ -71,7 +70,7 @@ import {
         return {
           ...state,
           loading: false,
-          products: action.payload.data.products
+          produtos: action.payload.data.produtos
         }
       case GET_PRODUCTS_BY_CATEGORY_FAIL:
         return {
@@ -89,7 +88,7 @@ import {
         return {
           ...state,
           loading: false,
-          products: action.payload.data.products
+          produtos: action.payload.data.produtos
         }
       case SEARCH_FAIL:
         return {
@@ -107,7 +106,7 @@ import {
         return {
           ...state,
           loading: false,
-          products: action.payload.data.products
+          produtos: action.payload.data.produtos
         }
       case APPLY_FILTERS_FAIL:
         return {

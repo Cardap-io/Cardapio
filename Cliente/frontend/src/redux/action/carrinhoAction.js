@@ -1,15 +1,15 @@
-import serverCall from '../../modules/serverCall'
+import serverCall from '../../services/serverCall'
 import Auth from '../../services/auth';
 
 
 export const getCartByUserId = () => dispatch => {
-  let userId = Auth.getUserId()
+  let uid = Auth.getUserId()
   dispatch({
     type: GET_CART_BY_USERID_BEGIN
   })
   return serverCall({
     method: 'GET',
-    url: `users/${userId}/cart`
+    url: `users/${uid}/carrinho`
   })
     .then(res => {
       dispatch({
@@ -27,19 +27,19 @@ export const getCartByUserId = () => dispatch => {
     })
 }
 
-export const postCart = (productId, increase, decrease) => (dispatch) => {
-  let userId = Auth.getUserId()
+export const postCart = (pid, aumentar, diminuir) => (dispatch) => {
+  let uid = Auth.getUserId()
   dispatch({
     type: POST_CART_BEGIN
   })
   return serverCall({
     method: 'POST',
-    url: `users/${userId}/cart`,
+    url: `users/${uid}/carrinho`,
     data: {
-      userId,
-      productId,
-      increase,
-      decrease
+      uid,
+      pid,
+      aumentar,
+      diminuir
     }
   })
     .then(res => {

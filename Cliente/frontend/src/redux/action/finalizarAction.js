@@ -1,4 +1,4 @@
-import serverCall from '../../modules/serverCall'
+import serverCall from '../../services/serverCall'
 
 export const getCheckoutUrl = (cartId) => dispatch => {
   dispatch({

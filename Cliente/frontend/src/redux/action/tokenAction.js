@@ -1,4 +1,4 @@
-import { login } from '../../modules/serverCall'
+import { login } from '../../services/serverCall'
 
 export const postToken = (email, password) => dispatch => {
   dispatch({

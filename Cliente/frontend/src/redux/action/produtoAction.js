@@ -1,4 +1,4 @@
-import serverCall from '../../modules/serverCall'
+import serverCall from '../../services/serverCall'
 
 export const getAllProducts=()=>dispatch=>{
   dispatch({
@@ -6,13 +6,14 @@ export const getAllProducts=()=>dispatch=>{
   })
   return serverCall({
     method:'GET',
-    url:`/cardapio`
+    url:`cardapio/`
   })
   .then(res=>{
     dispatch({
       type: GET_ALL_PRODUCTS_SUCCESS,
       payload: res
     })
+    console.log(res)
     return res
   })
   .catch(error=>{
@@ -30,7 +31,7 @@ export const getProduct=(id)=>dispatch=>{
   })
   return serverCall({
     method:'GET',
-    url:`/cardapio/${id}`
+    url:`produtos/${id}`
   })
   .then(res=>{
     dispatch({
@@ -48,79 +49,7 @@ export const getProduct=(id)=>dispatch=>{
   })
 }
 
-/*
-export const getProductsByCategory=(c)=>dispatch=>{
-  dispatch({
-    type:GET_PRODUCTS_BY_CATEGORY_BEGIN,
-  })
-  return serverCall({
-    method:'GET',
-    url:`/products?category=${c}`
-  })
-  .then(res=>{
-    dispatch({
-      type: GET_PRODUCTS_BY_CATEGORY_SUCCESS,
-      payload: res
-    })
-    return res
-  })
-  .catch(error=>{
-    dispatch({
-      type: GET_PRODUCTS_BY_CATEGORY_FAIL,
-      payload: {error}
-    })
-    return error
-  })
-}*/
 
-/*export const search=(text)=>dispatch=>{
-  dispatch({
-    type:SEARCH_BEGIN,
-  })
-  return serverCall({
-    method:'GET',
-    url:`/search?query=${text}`
-  })
-  .then(res=>{
-    dispatch({
-      type: SEARCH_SUCCESS,
-      payload: res
-    })
-    return res
-  })
-  .catch(error=>{
-    dispatch({
-      type: SEARCH_FAIL,
-      payload: {error}
-    })
-    return error
-  })
-}*/
-/*
-export const applyFilters=(filter_string)=>dispatch=>{
-  dispatch({
-    type:APPLY_FILTERS_BEGIN,
-  })
-  return serverCall({
-    method:'GET',
-    url:`/products?${filter_string}`
-  })
-  .then(res=>{
-    dispatch({
-      type: APPLY_FILTERS_SUCCESS,
-      payload: res
-    })
-    return res
-  })
-  .catch(error=>{
-    dispatch({
-      type: APPLY_FILTERS_FAIL,
-      payload: {error}
-    })
-    return error
-  })
-}
-*/
 export const APPLY_FILTERS_BEGIN='APPLY_FILTERS_BEGIN'
 export const APPLY_FILTERS_SUCCESS='APPLY_FILTERS_SUCCESS'
 export const APPLY_FILTERS_FAIL='APPLY_FILTERS_FAIL'

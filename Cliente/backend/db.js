@@ -4,7 +4,8 @@ var cardapio = require('./cardapio.json');
 module.exports = function() {
 return {
 users  : users,
-cardapio : cardapio,
+produtos : cardapio.produtos,
+cardapio: cardapio.cardapio
 // and so on
 }
 }

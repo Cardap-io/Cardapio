@@ -1,9 +1,9 @@
 {
   "users": [
     {
-      "name": "",
-      "email": "",
-      "senha": "",
+      "name": "Bruno",
+      "email": "bruno@cardapio.com",
+      "senha": "12345",
       "id": 0
     },
     {
@@ -19,28 +19,22 @@
       "id": 2
     },
     {
-      "name": "",
-      "email": "",
-      "senha": "",
+      "name": "Eric",
+      "email": "eric@cardapio.com",
+      "senha": "12345",
       "id": 3
     },
     {
-      "name": "",
-      "email": "",
-      "senha": "",
+      "name": "pandolfo",
+      "email": "pandolfo@cardapio.com",
+      "senha": "1234",
       "id": 4
     },
     {
-      "name": "",
-      "email": "",
-      "senha": "",
+      "name": "nicolas",
+      "email": "nicolas@cardapio.com",
+      "senha": "nick",
       "id": 5
-    },
-    {
-      "name": "",
-      "email": "",
-      "senha": "",
-      "id": 6
     }
   ]
 }

@@ -1,7 +1,6 @@
-import Auth from '../Auth'
-import jumpTo from '../Navigation'
+import Auth from './auth'
+import jumpTo from './navigation'
 import axios from 'axios'
-import qs from 'qs'
 
 
 const URL = "http://localhost:3001/";
@@ -48,7 +47,7 @@ export const login = (email, password) => {
   }
   return serverCall({
     method: 'POST',
-    url: '/users/',
+    url: 'users',
     data: body
   })
     .then(res => {
