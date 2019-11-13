@@ -2,7 +2,7 @@ import {
     POST_SIGNIN_BEGIN,
     POST_SIGNIN_SUCCESS,
     POST_SIGNIN_FAIL
-  } from '../action/cadastroAction'
+  } from '../actionTypes/cadastroTypes'
   
   const initialState = {
     signin_loading: false,
@@ -17,6 +17,7 @@ import {
           signin_loading: true
         }
       case POST_SIGNIN_SUCCESS:
+        console.log(action.payload)
         return {
           ...state,
           signin_loading: false,

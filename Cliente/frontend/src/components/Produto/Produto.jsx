@@ -1,30 +1,36 @@
 import React,{Component} from 'react'
 import Main from '../template/Main'
 import jumpTo from '../../services/navigation'
+import PropTypes from 'prop-types'
+import {getProduct} from '../../redux/action/produtoAction'
+import {postCart} from '../../redux/action/carrinhoAction'
+import {connect} from 'react-redux'
 
-export default class Produto extends Component{
+
+
+class Produto extends Component{
     constructor(props){
         super(props)
         this.state = {
-            id:'',
-            nome: '',
-            descricao: '',
-            valor: '',
-            obs:''
+            produto:this.props.produto
         }
+
+    }
+
+    static propTypes = {
+        produto: PropTypes.object.isRequired
     }
 
     componentDidMount(){
-        console.log(this.props)
-        this.props.getProduct(this.props.location.pathname.split("/").slice(-1)[0]).bind(this)
+        let id = this.props.location.pathname.split("/").slice(-1)[0]
+        console.log(id)
+        this.props.getProduct(id)
+        //getProduct(this.props.location.pathname.split("/").slice(-1)[0])
     }
 
     addCarrinho = () => {
-        this.props.postCart(
-            this.state.id || this.props.location.pathname.split(-1)[0]
-        ).then(res => {
-            jumpTo('/carrinho')
-        })
+        this.props.postCart(this.props.location.pathname.split('/').slice(-1)[0])
+        jumpTo('/carrinho')
     }
 
     handleClick = (produto) =>{
@@ -59,7 +65,11 @@ export default class Produto extends Component{
             <div className="row">
                 <div className="col">
                     <label>Observações:</label>
-                    <textarea name="observacao" cols="30" rows="10" onChange={ e => this.updateField(e)} 
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    <textarea name="observacao" cols="25" rows="10" onChange={ e => this.updateField(e)} 
                     placeholder="Observações" />
                 </div>
             </div>
@@ -73,9 +83,22 @@ render(){
     <Main>
         <div className="container-fluid col-8">
             {this.renderProduto()}
-            <div className="btn" onClick={this.addCarrinho}>Adicionar ao carrinho</div>
+            <div className="btn btn-danger" onClick={this.addCarrinho}>Adicionar ao carrinho</div>
         </div>
     </Main>
     )}
 
 }
+
+const mapStateToProps = state =>({
+    produto: state.produto.produto
+})
+
+const mapDispatchToProps = dispatch =>({
+    getProduct: produto => {dispatch(getProduct(produto))},
+    postCart: pid => {dispatch(postCart(pid))}
+})
+
+const aaa = connect(mapStateToProps,mapDispatchToProps)(Produto)
+
+export {aaa as Produto }

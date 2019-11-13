@@ -1,6 +1,9 @@
 import React,{Component} from 'react'
+import { connect } from 'react-redux'
+import {getCheckoutUrl} from '../../redux/action/finalizarAction'
+import {getCartByUserId} from '../../redux/action/carrinhoAction'
 
-export default class Finalizar extends Component{
+class Finalizar extends Component{
     constructor(props){
         super(props)
     }
@@ -70,3 +73,16 @@ export default class Finalizar extends Component{
         )
     }
 }
+const mapStoreToProps = state => ({
+    carrinho:state.carrnho.carrinho,
+    url:state.finalizar.approval_url,
+    name:state.token.user_token.user_name
+  })
+  const mapDispatchToProps = dispatch => ({
+    getCheckoutUrl:(cartId)=>dispatch(getCheckoutUrl(cartId)),
+    getCartByUserId:()=>dispatch(getCartByUserId())
+  })
+  
+  const aaa = connect(mapStoreToProps, mapDispatchToProps)(Finalizar)
+
+  export {aaa as Finalizar}

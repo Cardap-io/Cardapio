@@ -1,18 +1,22 @@
 import React, {Component} from 'react'
-import axios from 'axios'
 import Main from '../template/Main'
 import Logo from '../template/Logo'
+import { connect } from 'react-redux'
+import { signin } from '../../redux/action/cadastroAction'
 
-const baseURL = 'http://localhost:3001/users'
 
 const initialState = {
-    user: {name: '', email:'', senha:''},
-    list:[]
+
 }
 
-export default class SignUp extends Component {
+class Signup extends Component {
 
-    state = {...initialState}
+    constructor(props){
+        super(props)
+        this.state ={
+            user:{nome:'',email:'',senha:''}
+        }
+    }
 
     updateField(event){ //função para atualizar o campo digitado
         const user = {...this.state.user}
@@ -20,21 +24,13 @@ export default class SignUp extends Component {
         this.setState({user})
     }
 
-    getUpdatedList(user, add = true){ //função que verifica os dados do db.json
-        const list = this.state.list.filter( u => u.id !== user.id)
-        if(add) list.unshift(user) //if para add na lista
-        return list
-    }
-
-    save(){// função que salva no arquino bd.json
-        const user = this.state.user
-        const method = 'post' //metodo http post
-        const url = user.id ? `${baseURL}/${user.id}` : baseURL
-        axios[method](url,user)
-            .then(resp => {
-                const list = this.getUpdatedList(resp.data)  //atualiza a lista
-                this.setState({user: initialState.user, list})
-            })
+    save(event){
+        if(this.state.user.nome===""||this.state.user.email===""||this.state.user.senha===""){
+            event.preventDefault()
+            alert("Há campos vazios")
+        }else{
+        this.props.signin(this.state.user.nome,this.state.user.email,this.state.user.senha)
+        }
     }
 
     renderForm(){ // renderizar o formulario
@@ -51,7 +47,7 @@ export default class SignUp extends Component {
                     <div className="col">
                         <div className="form-group">
                             <label>Nome</label>
-                            <input type="text" className="form-control" name="name" value={this.state.user.name}
+                            <input type="text" className="form-control" name="nome" value={this.state.user.nome}
                             onChange = {e => this.updateField(e)} placeholder="Nome" />
                         </div>
                     </div>
@@ -77,7 +73,7 @@ export default class SignUp extends Component {
 
                 <div className="row">
                     <div className="col">
-                        <button className="btn btn-primary" type="submit" onClick={e => this.save(e)} >
+                        <button className="btn btn-primary" type="submit" onClick={e =>this.save(e)} >
                             Cadastrar
                         </button>
                     </div>
@@ -109,3 +105,11 @@ export default class SignUp extends Component {
     }
 
 }
+const mapDispatchToProps ={
+    signin
+    // : ({nome,email,senha}) => {dispatch(signin({nome,email,senha}))}
+  }
+
+const aaa = connect(null , mapDispatchToProps)(Signup)
+
+export {aaa as Signup}

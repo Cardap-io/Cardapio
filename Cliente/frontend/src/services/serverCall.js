@@ -35,23 +35,28 @@ const serverCall = (config) => {
   config.baseURL = URL
   return axios(config)
 }
+
 export default serverCall
+
+
 
 export const login = (email, password) => {
   const body =
   {
-    "credential": {
+    user: {
       "email": email,
       "password": password
     }
   }
   return serverCall({
     method: 'POST',
-    url: 'users',
+    url: '/users',
     data: body
   })
     .then(res => {
+      
       Auth.setUserToken(res.data.user_token)
       return res
+    
     })
 }

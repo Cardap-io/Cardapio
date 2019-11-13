@@ -1,4 +1,4 @@
-import { connect } from 'react-redux'
+/*import { connect } from 'react-redux'
 import Carrinho from './carrinho'
 import {getCartByUserId,postCart} from '../../redux/action/carrinhoAction'
 
@@ -10,4 +10,4 @@ const mapDispatchToProps=dispatch=>({
   postCart:(pid,aumentar,diminuir)=>dispatch(postCart(pid,aumentar,diminuir))
 })
 
-export default connect(mapStoreToProps,mapDispatchToProps)(Carrinho)
+export default connect(mapStoreToProps,mapDispatchToProps)(Carrinho)*/

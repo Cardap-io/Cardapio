@@ -1,38 +1,18 @@
-import React from 'react'
+import React, {Component} from 'react'
+import Tabela from './Tabela'
 import jumpTo from '../../services/navigation'
+import { connect } from 'react-redux'
+import {getCartByUserId,postCart} from '../../redux/action/carrinhoAction'
 
+class Carrinho extends Component{
 
-function renderTable(itens){
-    return(
-        <table className="striped bordered">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Quantidade</th>
-                    <th>Preço</th>
-                </tr>
-            </thead>
-            <tbody>
-                {Object.key(itens).map(id => {
-                    <tr key={id}>
-                        <td>{itens[id].item.nome}</td>
-                        <td>
-                            <button className="btn btn-warning" onClick={handleClick(id,true,false)}><i className="fa fa-plus-square"></i></button>
-                            {itens[id].quantidade}
-                            <button className="btn btn-warning" onClick={handleClick(id,false,true)}><i className="fa fa-minus-square"></i></button>
-                        </td>
-                        <td>{itens[id].valor}</td>
-                    </tr>
-                }
-                )}
-            </tbody>
-        </table>
-    )
-}
+    constructor(props){
+        super(props)
+    }
 
-export default function Carrinho(props){
-    const {preco, itens} = props.carrinho
-    const {postCart} = props
+    render(){
+    const {preco, itens} = this.props.carrinho
+    const {postCart} = this.props
     return(
         <div className="container">
             <div className="row">
@@ -42,7 +22,8 @@ export default function Carrinho(props){
             </div>
             <div className="row">
                 <div className="col">
-                    {renderTable(itens)}
+                <Tabela itens={itens || {}} 
+                handleClick={(pid, aumentar,diminuir) => postCart(pid,aumentar,diminuir)}/>
                 </div>
             </div>
             <div className="row">
@@ -59,4 +40,16 @@ export default function Carrinho(props){
             </div>
         </div>
     )
+    }
 }
+const mapStoreToProps=state=>({
+    carrinho:state.carrinho.carrinho
+  })
+  const mapDispatchToProps=dispatch=>({
+    getCartByUserId:dispatch(getCartByUserId()),
+    postCart:(pid,aumentar,diminuir)=>dispatch(postCart(pid,aumentar,diminuir))
+  })
+  
+  const aaa = connect(mapStoreToProps,mapDispatchToProps)(Carrinho)
+
+  export {aaa as Carrinho}

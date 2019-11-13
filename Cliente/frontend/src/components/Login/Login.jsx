@@ -1,35 +1,35 @@
 import React, {Component} from 'react'
-import axios from 'axios'
 import Main from '../template/Main'
 import Logo from '../template/Logo'
 
-const baseURL = 'http://localhost:3001/users'
+import {connect } from 'react-redux'
+import {postToken} from '../../redux/action/tokenAction'
 
-const initialState = {
-    user: {email:'', senha:''},
-    list:[]
-}
 
-export default class Login extends Component {
+class Login extends Component {
 
-    state = {...initialState}
+    constructor(props){
+        super(props)
+        this.state ={
+            user:{email:'',senha:''},
+            logado:false
 
+        }
+    }
+
+    save(event){
+        if(this.state.user.email===""||this.state.user.senha===""){
+            event.preventDefault()
+            alert("Há campos vazios")
+        }else{
+        this.props.postToken(this.state.user.email,this.state.user.senha)
+        }
+    }
 
     updateField(event){
         const user = {...this.state.user}
         user[event.target.name] = event.target.value
         this.setState({user})
-    }
-
-    save(){
-        const user = this.state.user
-        const method = 'post'
-        const url = user.id ? `${baseURL}/${user.id}` : baseURL
-        axios[method](url,user)
-            .then(resp => {
-                const list = this.getUpdatedList(resp.data) 
-                this.setState({user: initialState.user, list})
-            })
     }
 
     renderForm(){
@@ -72,7 +72,7 @@ export default class Login extends Component {
                 <div className="row">
                     <div className="col">
                         <h6> Não possui conta? Cadastre-se</h6>
-                        <a href="/signup">
+                        <a href="/cadastro">
                             <button className="btn btn-secondary">      
                             Cadastre-se                           
                             </button>
@@ -95,3 +95,16 @@ export default class Login extends Component {
     }
 
 }
+
+const mapDispatchToProps={
+  postToken
+}
+const mapStoreToProps=state=>({
+  login_loading:state.token.token_loading,
+  login_error:state.token.error
+})
+
+const aaa = connect(mapStoreToProps,mapDispatchToProps)(Login)
+
+export {aaa as Login}
+

@@ -6,45 +6,73 @@
     "produtos": [
             {
                 "id": 1,
-                "nome": "Eric",
-                "descricao": "Safadao",
-                "valor": "100000.00",
+                "nome": "Batata Rústica",
+                "descricao": "Porção de Batata cortadas com casca rusticamente e fritas",
+                "valor": 15.00,
                 "categoria": "ENTRADA"
             },
             {
                 "id": 2,
-                "nome": "Eric",
-                "descricao": "Safadao",
-                "valor": "100000.00",
+                "nome": "Nugets 10 Unidades",
+                "descricao": "Peito de frango empanado e frito",
+                "valor": 18.00,
                 "categoria": "ENTRADA"
             },
             {
                 "id": 3,
-                "nome": "Eric",
-                "descricao": "Safadao",
-                "valor": "100000.00",
-                "categoria": "ENTRADA"
+                "nome": "Australiano",
+                "descricao": "Pão Australiano, Hamburguer de 200 grms, Queijo Cheddar e cebola caramelada",
+                "valor": 27.00,
+                "categoria": "LANCHE"
             },
             {
                 "id": 4,
-                "nome": "teste",
-                "descricao": "TESTE",
-                "valor": "100000.00",
-                "categoria": "SOBREMESA"
+                "nome": "Monstro",
+                "descricao": "Pão de cebola, 2x Hamburger de 150 grms, Queijo Cheddar, cebola, picles, molho da casa",
+                "valor": 32.00,
+                "categoria": "LANCHE"
             },
             {
                 "id": 5,
-                "nome": "teste",
-                "descricao": "TESTE",
-                "valor": "100000.00",
-                "categoria": "SOBREMESA"
+                "nome": "Frango",
+                "descricao": "Pão de Brioche, Hamburguer de frango de 180 grms, maionese da casa, alface americana,tomate e queijo provolone",
+                "valor": 22.00,
+                "categoria": "LANCHE"
             },
             {
                 "id": 6,
-                "nome": "teste",
-                "descricao": "TESTE",
-                "valor": "100000.00",
+                "nome": "Super Pig",
+                "descricao": "Pão de Hamburguer tradicional, molho barbecue, catupiry, bacon e picles",
+                "valor": 23.00,
+                "categoria": "LANCHE"
+            },
+            {
+                "id": 7,
+                "nome": "Pudim de café",
+                "descricao": "Pudim de café feito na caneca com calda de caramelo",
+                "valor": 11.00,
                 "categoria": "SOBREMESA"
+            },
+            {
+                "id": 8,
+                "nome": "Petit Gataeu",
+                "descricao": "Mini bolo com recheio cremoso de chocolate, servido com sorvete de creme",
+                "valor": 14.00,
+                "categoria": "SOBREMESA"
+            },
+            {
+                "id": 9,
+                "nome": "Coca-cola",
+                "descricao": "Coca-cola 600ml",
+                "valor": 6.00,
+                "categoria": "BEBIDAS"
+            },
+            {
+                "id": 10,
+                "nome": "IPA",
+                "descricao": "Cerveja de alta fermentação puro malte, 400 ml",
+                "valor": 11.00,
+                "categoria": "BEBIDAS"
             }
         ] 
 }
