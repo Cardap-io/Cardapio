@@ -3,88 +3,130 @@ import axios from 'axios'
 import Main from '../template/Main'
 import _ from 'lodash'
 
-const baseURL = 'http://localhost:3001/cardapio'
+const baseURL = 'http://localhost:3001/'
 
-const headerProps ={
-    title:'Cardapio'
-}
 
 export default class Cardapio extends Component {
 
     constructor(){
         super()
         this.state = {
-            array:[]
         }
-
+        
     }
+
+
+    groupProdutos(){
+        var produtos = _.groupBy(this.state.prod,'categoria')
+        return produtos
+    }
+
 
     componentDidMount(){
-        axios.get(baseURL).then(({data})=>
-         {this.setState({array:data.Produtos})})
-         .catch((err) => {})
-    }
+        axios.all([axios.get(baseURL+'cardapio'),
+                   axios.get(baseURL+'produtos')])
+        .then(axios.spread((cardapio,produts) => {
+            let name = cardapio.data.nome
+            let produtos = produts.data
+            this.setState({nome:name,prod:produtos})})).catch((err)=> {})}
 
-    renderCardapio(){
-        return _.map( this.state.array, Produtos=> {
+
+    /*renderCardapio(prod){
+        return _.map(prod, prod => {
         return(
-        
             <div className="row">
-                <div className="col">
-                    <h4>{Produtos.Categoria}</h4>
+                <div className="col" >
+                    
+                    <h4>{prod}</h4>
                     <br/>
-                    <div className="panel-group">
-                        <div className="panel panel-default mb-3" key={Produtos.Categoria}>
-                            {this.renderItens(Produtos)}
+                    <div className="panel-group" key={prod.categoria}>
+                        <div className="panel panel-default mb-3" >
+                            {this.renderItens()}
                         </div>
                     </div>
                 </div>
             </div>
             )
         })
+    }*/
+
+    renderCardapio(){
+        return Object.keys(this.groupProdutos()).map( categoria =>(
+            <div className="row">
+                <div className="col">        
+                    <h4>{categoria}</h4>
+                    <br/>
+                    <div className="panel-group" key={categoria}>
+                        <div className="panel panel-default mb-3" >
+                            {this.groupProdutos()[categoria].map(prod =>(
+                                <React.Fragment>
+                                    <div className="panel-heading">
+                                        <h4 className="panel-title" key={prod.id}>
+                                            <div onClick={() => this.props.history.push(`/produto/${prod.id}`)} className="title">
+                                                    {prod.nome}
+                                            </div>
+                                        </h4>
+                                    </div>
+                                    <div id={prod.id} className="panel">
+                                        <div className="panel-body">
+                                            <p className="desc">{prod.descricao}</p>
+                                        </div>
+                                        <div className="panel-footer">
+                                            <h5 className="">R${prod.valor}</h5>
+                                        </div>       
+                                    </div>
+                                </React.Fragment>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ))
     }
 
-    renderItens(Produtos){
-        return _.map(Produtos.Itens, itens => {
+    /*renderItens(){
+        return this.state.prod.map( produtos => {
             return (
             <React.Fragment>
                 <div className="panel-heading">
-                    <h4 className="panel-title" key={itens.ID}>
-                        <a href={"/produto/" + itens.ID} className="title">
-                                {itens.Nome_do_item}
+                    <h4 className="panel-title" key={produtos.id}>
+                        <a href={"/produto/" + produtos.id} className="title">
+                                {produtos.nome}
                         </a>
                     </h4>
                 </div>
-                <div id={itens.ID} className="panel">
+                <div id={produtos.id} className="panel">
                     <div className="panel-body">
-                        <p className="desc">{itens.Descricao}</p>
+                        <p className="desc">{produtos.descricao}</p>
                     </div>
                     <div className="panel-footer">
-                        <h5 className="">R${itens.Preco}</h5>
+                        <h5 className="">R${produtos.valor}</h5>
                     </div>       
                 </div>
     </React.Fragment>
             )
         })
 
-    }
+    }*/
 
-    renderBusca(){
+    renderNome(){
         return(
-        <div className="row">
-            <div className="col">
-                <input type="text" name="busca" placeholder="Buscar item..."/>
+        <React.Fragment>
+            <div className="row">
+                <div className="col">
+                    <h3>{this.state.nome}</h3>
+                </div>
             </div>
-        </div>
-        )
+        </React.Fragment>
+            )
     }
 
     render(){
         return(
             <React.Fragment>
-                <Main {...headerProps}>
+                <Main>
                 <div className="container-fluid col-8">
-                    {/*this.renderBusca()*/}
+                    {this.renderNome()}
                     {this.renderCardapio()}
                 </div>
                 </Main>

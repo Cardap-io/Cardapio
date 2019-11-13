@@ -1,4 +1,11 @@
-import { login } from '../../modules/serverCall'
+import { login } from '../../services/serverCall'
+import {
+  POST_TOKEN_BEGIN,
+  POST_TOKEN_SUCCESS,
+  POST_TOKEN_FAIL,
+  INSERT_TOKEN_SUCCESS,
+  INSERT_TOKEN_FAIL
+} from '../actionTypes/tokenTypes'
 
 export const postToken = (email, password) => dispatch => {
   dispatch({
@@ -10,8 +17,6 @@ export const postToken = (email, password) => dispatch => {
         type: POST_TOKEN_SUCCESS,
         payload: res
       })
-      // console.log('tokenAction res');
-      // console.log(res);
       return res
     })
     .catch(error => {
@@ -19,8 +24,6 @@ export const postToken = (email, password) => dispatch => {
         type: POST_TOKEN_FAIL,
         payload: { error }
       })
-      // console.log('tokenAction error');
-      // console.log(error.response);
       throw error
     })
 }
@@ -39,9 +42,3 @@ export const insertToken = () => dispatch => {
     })
   }
 }
-
-export const POST_TOKEN_BEGIN = 'POST_TOKEN_BEGIN'
-export const POST_TOKEN_SUCCESS = 'POST_TOKEN_SUCCESS'
-export const POST_TOKEN_FAIL = 'POST_TOKEN_FAIL'
-export const INSERT_TOKEN_SUCCESS = 'INSERT_TOKEN_SUCCESS'
-export const INSERT_TOKEN_FAIL = 'INSERT_TOKEN_FAIL'

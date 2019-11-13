@@ -1,16 +1,13 @@
-import {
-    POST_CART_BEGIN,
-    POST_CART_SUCCESS,
-    POST_CART_FAIL,
-    GET_CART_BY_USERID_BEGIN,
-    GET_CART_BY_USERID_SUCCESS,
-    GET_CART_BY_USERID_FAIL
-  } from '../action/carrinhoAction'
+import {POST_CART_BEGIN,
+  POST_CART_SUCCESS,
+  POST_CART_FAIL,
+  GET_CART_BY_USERID_BEGIN,
+  GET_CART_BY_USERID_SUCCESS,
+  GET_CART_BY_USERID_FAIL} 
+  from '../actionTypes/carrinhoTypes'
   
   const initialState = {
-    cart: {},
-    loading: false,
-    error: {},
+    cart: {}
   }
   
   export default (state = initialState, action) => {
@@ -18,14 +15,12 @@ import {
       case POST_CART_BEGIN:
         return {
           ...state,
-          loading: true,
           error: {}
         }
       case POST_CART_SUCCESS:
         return {
           ...state,
-          cart: action.payload.data.cart,
-          loading: false
+          cart: action.payload.data
         }
       case POST_CART_FAIL:
         return {

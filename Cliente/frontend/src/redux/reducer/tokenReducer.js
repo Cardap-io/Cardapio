@@ -4,10 +4,11 @@ import {
   POST_TOKEN_FAIL,
   INSERT_TOKEN_SUCCESS,
   INSERT_TOKEN_FAIL
-} from '../action/tokenAction'
+} from '../actionTypes/tokenTypes'
 
 const initialState = {
   user_token: {},
+  logado:false,
   token_loading: false,
   error: {},
   insert_token_error: false
@@ -24,6 +25,7 @@ export default (state = initialState, action) => {
     case POST_TOKEN_SUCCESS:
       return {
         ...state,
+        logado:true,
         user_token: action.payload.data.user_token,
         token_loading: false
       }

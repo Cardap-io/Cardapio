@@ -28,7 +28,9 @@ export default class LeitorQR extends Component{
                 <QrReader delay={300}
                 onError={this.handleError}
                 onScan={this.handleScan}
-                style={{ width:'100%'}} />
+                style={{ width:'100%'}}
+                facingMode="user"
+                 />
                 <p>{this.state.result}</p>    
             </Main>
         </React.Fragment>

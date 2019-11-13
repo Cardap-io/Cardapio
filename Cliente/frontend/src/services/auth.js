@@ -10,10 +10,10 @@ class Auth {
   }
   setUserToken(new_token) {
     this.user_token = new_token
-    localStorage.setItem('auth', JSON.stringify(new_token))
+    sessionStorage.setItem('auth', JSON.stringify(new_token))
   }
   logout() {
-    localStorage.removeItem('auth')
+    sessionStorage.removeItem('auth')
   }
 }
 export default new Auth()

@@ -1,4 +1,12 @@
-import serverCall from '../../modules/serverCall'
+import serverCall from '../../services/serverCall'
+import {
+  GET_CHECKOUT_BEGIN,
+  GET_CHECKOUT_SUCCESS,
+  GET_CHECKOUT_FAIL,
+  GET_PAYMENT_BEGIN,
+  GET_PAYMENT_SUCCESS,
+  GET_PAYMENT_FAIL
+} from '../actionTypes/finalizarTypes'
 
 export const getCheckoutUrl = (cartId) => dispatch => {
   dispatch({
@@ -24,7 +32,7 @@ export const getCheckoutUrl = (cartId) => dispatch => {
     })
 }
 
-export const getPayment = (paymentId, PayerID) => dispatch => {
+/*export const getPayment = (paymentId, PayerID) => dispatch => {
   dispatch({
     type: GET_PAYMENT_BEGIN,
   })
@@ -57,12 +65,4 @@ export const getPayment = (paymentId, PayerID) => dispatch => {
       return error
     })
 }
-
-
-export const GET_PAYMENT_BEGIN = 'GET_PAYMENT_BEGIN'
-export const GET_PAYMENT_SUCCESS = 'GET_PAYMENT_SUCCESS'
-export const GET_PAYMENT_FAIL = 'GET_PAYMENT_FAIL'
-
-export const GET_CHECKOUT_BEGIN = 'GET_CHECKOUT_BEGIN'
-export const GET_CHECKOUT_SUCCESS = 'GET_CHECKOUT_SUCCESS'
-export const GET_CHECKOUT_FAIL = 'GET_CHECKOUT_FAIL'
+*/

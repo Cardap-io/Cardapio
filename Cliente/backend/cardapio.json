@@ -1,77 +1,78 @@
-{
-        "Produtos":
-        [ {
-                "Categoria":"Entradas",
-                "Itens":[
-                {
-                    "ID":1,
-                    "Nome_do_item": "Batata Rústica",
-                    "Descricao": "Porção de Batata cortadas com casca rusticamente e fritas",
-                    "Preco": 15.00
-                },
-                {
-                    "ID":2,
-                    "Nome_do_item": "Nugets 10 Unidades",
-                    "Descricao": "Peito de frango empanado e frito",
-                    "Preco": 18.00
-                }
-            ]},{
-            "Categoria":"Lanches",
-            "Itens": [
-                {
-                    "ID":3,
-                    "Nome_do_item": "Australiano",
-                    "Descricao": "Pão Australiano, Hamburguer de 200 grms, Queijo Cheddar e cebola caramelada",
-                    "Preco": 20.00
-                },
-                {
-                    "ID":4,
-                    "Nome_do_item": "Picanha",
-                    "Descricao": "Pão de cebola",
-                    "Preco": 22.00
-                },
-                {
-                    "ID":5,
-                    "Nome_do_item": "Frango",
-                    "Descricao": "Pão de Brioche, Hamburguer de frango de 180 grms, maionese da casa, alface americana,tomate e queijo provolone",
-                    "Preco": 18.00
-                },
-                {
-                    "ID":6,
-                    "Nome_do_item": "Super Pig",
-                    "Descricao": "Pão de Hamburguer tradicional, molho barbecue, catupiry, bacon e picles",
-                    "Preco": 22.00
-                }
-            ]},{
-            "Categoria":"Sobremesas",
-            "Itens": [
-                {
-                    "ID":7,
-                    "Nome_do_item": "Pudim de café",
-                    "Descricao": "Pudim de café feito na caneca com calda de caramelo",
-                    "Preco": 15.00
-                },
-                {
-                    "ID":8,
-                    "Nome_do_item": "Petit Gateu",
-                    "Descricao": "Mini bolo com recheio cremoso de chocolate, servido com sorvete de creme",
-                    "Preco": 18.00
-                }
-            ]},{
-            "Categoria":"Bebidas",
-            "Itens": [
-                {
-                    "ID":9,
-                    "Nome_do_item": "Coca-cola",
-                    "Descricao": "Coca-cola 600ml",
-                    "Preco": 4.00
-                },
-                {
-                    "ID":10,
-                    "Nome_do_item": "IPA",
-                    "Descricao": "Cerveja de alta fermentação puro malte, 400 ml",
-                    "Preco": 10.00
-                }
-            ]
-        }]
+{   
+    "cardapio":{
+        "id": 1,
+        "nome": "Outro"
+    },
+    "produtos": [
+            {
+                "id": 1,
+                "nome": "Batata Rústica",
+                "descricao": "Porção de Batata cortadas com casca rusticamente e fritas",
+                "valor": 15.00,
+                "categoria": "ENTRADA"
+            },
+            {
+                "id": 2,
+                "nome": "Nugets 10 Unidades",
+                "descricao": "Peito de frango empanado e frito",
+                "valor": 18.00,
+                "categoria": "ENTRADA"
+            },
+            {
+                "id": 3,
+                "nome": "Australiano",
+                "descricao": "Pão Australiano, Hamburguer de 200 grms, Queijo Cheddar e cebola caramelada",
+                "valor": 27.00,
+                "categoria": "LANCHE"
+            },
+            {
+                "id": 4,
+                "nome": "Monstro",
+                "descricao": "Pão de cebola, 2x Hamburger de 150 grms, Queijo Cheddar, cebola, picles, molho da casa",
+                "valor": 32.00,
+                "categoria": "LANCHE"
+            },
+            {
+                "id": 5,
+                "nome": "Frango",
+                "descricao": "Pão de Brioche, Hamburguer de frango de 180 grms, maionese da casa, alface americana,tomate e queijo provolone",
+                "valor": 22.00,
+                "categoria": "LANCHE"
+            },
+            {
+                "id": 6,
+                "nome": "Super Pig",
+                "descricao": "Pão de Hamburguer tradicional, molho barbecue, catupiry, bacon e picles",
+                "valor": 23.00,
+                "categoria": "LANCHE"
+            },
+            {
+                "id": 7,
+                "nome": "Pudim de café",
+                "descricao": "Pudim de café feito na caneca com calda de caramelo",
+                "valor": 11.00,
+                "categoria": "SOBREMESA"
+            },
+            {
+                "id": 8,
+                "nome": "Petit Gataeu",
+                "descricao": "Mini bolo com recheio cremoso de chocolate, servido com sorvete de creme",
+                "valor": 14.00,
+                "categoria": "SOBREMESA"
+            },
+            {
+                "id": 9,
+                "nome": "Coca-cola",
+                "descricao": "Coca-cola 600ml",
+                "valor": 6.00,
+                "categoria": "BEBIDAS"
+            },
+            {
+                "id": 10,
+                "nome": "IPA",
+                "descricao": "Cerveja de alta fermentação puro malte, 400 ml",
+                "valor": 11.00,
+                "categoria": "BEBIDAS"
+            }
+        ] 
 }

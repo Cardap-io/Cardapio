@@ -5,7 +5,7 @@ import {
     GET_PAYMENT_BEGIN,
     GET_PAYMENT_SUCCESS,
     GET_PAYMENT_FAIL
-  } from '../action/finalizarAction'
+  } from '../actionTypes/finalizarTypes'
   
   const initialState = {
     loading: false,

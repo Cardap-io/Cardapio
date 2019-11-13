@@ -1,15 +1,25 @@
-import serverCall from '../../modules/serverCall'
+import serverCall from '../../services/serverCall'
 import Auth from '../../services/auth';
+import Axios from 'axios';
+import {POST_CART_BEGIN,
+        POST_CART_SUCCESS,
+        POST_CART_FAIL,
+        GET_CART_BY_USERID_BEGIN,
+        GET_CART_BY_USERID_SUCCESS,
+        GET_CART_BY_USERID_FAIL} 
+        from '../actionTypes/carrinhoTypes'
+
+const url ='http://localhost:3001/carrinho'
 
 
 export const getCartByUserId = () => dispatch => {
-  let userId = Auth.getUserId()
+  let uid = Auth.getUserId()
   dispatch({
     type: GET_CART_BY_USERID_BEGIN
   })
   return serverCall({
     method: 'GET',
-    url: `users/${userId}/cart`
+    url: `/carrinho`
   })
     .then(res => {
       dispatch({
@@ -27,19 +37,24 @@ export const getCartByUserId = () => dispatch => {
     })
 }
 
-export const postCart = (productId, increase, decrease) => (dispatch) => {
-  let userId = Auth.getUserId()
+export const postCart = (pid) => (dispatch) => {
   dispatch({
     type: POST_CART_BEGIN
   })
+  /*return Axios.post(url,{pid}).then(res => {
+    console.log(res.data)
+    dispatch({
+      type:POST_CART_SUCCESS,
+      payload:res.data
+    })
+    return res
+  }).catch(erro => {
+    console.log(erro)
+  })*/
   return serverCall({
     method: 'POST',
-    url: `users/${userId}/cart`,
     data: {
-      userId,
-      productId,
-      increase,
-      decrease
+      pid
     }
   })
     .then(res => {
@@ -57,11 +72,3 @@ export const postCart = (productId, increase, decrease) => (dispatch) => {
       return error
     })
 }
-
-export const POST_CART_BEGIN = 'POST_CART_BEGIN'
-export const POST_CART_SUCCESS = 'POST_CART_SUCCESS'
-export const POST_CART_FAIL = 'POST_CART_FAIL'
-
-export const GET_CART_BY_USERID_BEGIN = 'GET_CART_BY_USERID_BEGIN'
-export const GET_CART_BY_USERID_SUCCESS = 'GET_CART_BY_USERID_SUCCESS'
-export const GET_CART_BY_USERID_FAIL = 'GET_CART_BY_USERID_FAIL'
