@@ -29,8 +29,10 @@ class Produto extends Component{
     }
 
     addCarrinho = () => {
-        this.props.postCart(this.props.location.pathname.split('/').slice(-1)[0])
-        jumpTo('/carrinho')
+        this.props.postCart(this.props.location.pathname.split('/').slice(-1)[0]).then(res => {
+            jumpTo('/carrinho')
+        })
+        
     }
 
     handleClick = (produto) =>{

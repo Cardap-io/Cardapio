@@ -4,7 +4,7 @@ var carrinho = require('./carrinho.json')
 
 module.exports = function() {
 return {
-users  : users,
+users  : users.users,
 produtos : cardapio.produtos,
 cardapio: cardapio.cardapio,
 carrinho: carrinho.produtos

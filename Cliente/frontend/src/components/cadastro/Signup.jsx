@@ -3,6 +3,7 @@ import Main from '../template/Main'
 import Logo from '../template/Logo'
 import { connect } from 'react-redux'
 import { signin } from '../../redux/action/cadastroAction'
+import jumpTo from '../../services/navigation'
 
 
 const initialState = {
@@ -29,7 +30,9 @@ class Signup extends Component {
             event.preventDefault()
             alert("Há campos vazios")
         }else{
-        this.props.signin(this.state.user.nome,this.state.user.email,this.state.user.senha)
+        this.props.signin(this.state.user.nome,this.state.user.email,this.state.user.senha).then( res => {
+            jumpTo('/login')
+        })
         }
     }
 

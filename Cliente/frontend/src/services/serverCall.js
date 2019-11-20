@@ -50,11 +50,11 @@ export const login = (email, password) => {
   }
   return serverCall({
     method: 'POST',
-    url: '/users',
+    url: 'users',
     data: body
   })
     .then(res => {
-      
+      console.log(res)
       Auth.setUserToken(res.data.user_token)
       return res
     

@@ -5,14 +5,14 @@ import {POST_SIGNIN_BEGIN,
         POST_SIGNIN_FAIL}
         from '../actionTypes/cadastroTypes'
 
-const url = 'http://localhost:3001/users/'
-/*export const signin=(nome,email,password)=>dispatch=>{
+const url = 'http://localhost:3001/'
+export const signin=(nome,email,password)=>dispatch=>{
   dispatch({
     type: POST_SIGNIN_BEGIN,
   })
   return serverCall({
     method:'POST',
-    url:'/users/',
+    url:'/users',
     data:{
       nome,email,password
     }
@@ -22,7 +22,8 @@ const url = 'http://localhost:3001/users/'
       type:POST_SIGNIN_SUCCESS,
       payload:res
     })
-    return res
+    if(res.status == 200 || res.status == 201){
+    return res}
   })
   .catch(error=>{
     dispatch({
@@ -31,9 +32,9 @@ const url = 'http://localhost:3001/users/'
     })
     throw error
   })
-}*/
+}
 
-export const signin = (nome,email,senha) => dispatch => {
+/*export const signin = (nome,email,senha) => dispatch => {
   return Axios.post(url,{nome,email,senha}).then(res=>{
     console.log("entrou no res" ,res.data)
     return dispatch({
@@ -43,5 +44,5 @@ export const signin = (nome,email,senha) => dispatch => {
   }).catch( erro => {
     console.log(erro)
   })
-}
+}*/
 

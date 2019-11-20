@@ -41,16 +41,6 @@ export const postCart = (pid) => (dispatch) => {
   dispatch({
     type: POST_CART_BEGIN
   })
-  /*return Axios.post(url,{pid}).then(res => {
-    console.log(res.data)
-    dispatch({
-      type:POST_CART_SUCCESS,
-      payload:res.data
-    })
-    return res
-  }).catch(erro => {
-    console.log(erro)
-  })*/
   return serverCall({
     method: 'POST',
     data: {

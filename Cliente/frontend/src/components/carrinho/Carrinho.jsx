@@ -11,7 +11,8 @@ class Carrinho extends Component{
     }
 
     render(){
-    const {preco, itens} = this.props.carrinho
+    {console.log(this.state.carrinho)}
+    const {valor, itens} = this.props.carrinho
     const {postCart} = this.props
     return(
         <div className="container">
@@ -28,7 +29,7 @@ class Carrinho extends Component{
             </div>
             <div className="row">
                 <div className="col">
-                    Total: R$ {preco}
+                    Total: R$ {valor}
                 </div>
             </div>
             <div className="row">

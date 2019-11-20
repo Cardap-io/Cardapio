@@ -11,6 +11,7 @@ import {GET_ALL_PRODUCTS_SUCCESS,
   export default function (state = initialState, action) {
     switch (action.type) {
       case GET_ALL_PRODUCTS_SUCCESS:
+        console.log(action.payload)
         return {
           ...state,
           produtos: action.payload
