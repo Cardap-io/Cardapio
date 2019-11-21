@@ -25,13 +25,16 @@ class Produto extends Component{
         let id = this.props.location.pathname.split("/").slice(-1)[0]
         console.log(id)
         this.props.getProduct(id)
-        //getProduct(this.props.location.pathname.split("/").slice(-1)[0])
     }
 
     addCarrinho = () => {
-        this.props.postCart(this.props.location.pathname.split('/').slice(-1)[0]).then(res => {
-            jumpTo('/carrinho')
-        })
+        let id = this.props.location.pathname.split("/").slice(-1)[0]
+        let nome = this.props.produto.nome
+        let valor = this.props.produto.valor
+        let observacoes = this.props.produto.descricao
+        this.props.postCart(id,nome,valor,observacoes)
+        jumpTo('/carrinho')
+    
         
     }
 

@@ -20,8 +20,7 @@ export default function renderTable({itens, handleClick}){
                             <button className="btn btn-warning" onClick={handleClick(id,false,true)}><i className="fa fa-minus-square"></i></button>
                         </td>
                         <td>{itens[id].valor}</td>
-                    </tr>
-                
+                    </tr>               
                 )}
             </tbody>
         </table>

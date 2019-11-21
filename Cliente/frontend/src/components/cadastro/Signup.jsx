@@ -15,7 +15,7 @@ class Signup extends Component {
     constructor(props){
         super(props)
         this.state ={
-            user:{nome:'',email:'',senha:''}
+            user:{nome:'',sobrenome:'',telefone:'',cpf:'',data_nasc:'',email:'',senha:''}
         }
     }
 
@@ -26,11 +26,19 @@ class Signup extends Component {
     }
 
     save(event){
-        if(this.state.user.nome===""||this.state.user.email===""||this.state.user.senha===""){
+        if( this.state.user.nome===""||
+            this.state.user.sobrenome===""||
+            this.state.user.telefone===""||
+            this.state.user.cpf===""||
+            this.state.user.data_nasc===""||
+            this.state.user.email===""||
+            this.state.user.senha===""){
             event.preventDefault()
             alert("Há campos vazios")
         }else{
-        this.props.signin(this.state.user.nome,this.state.user.email,this.state.user.senha).then( res => {
+        this.props.signin(this.state.user.nome,this.state.user.sobrenome,this.state.user.telefone,
+            this.state.user.cpf,this.state.user.data_nasc,this.state.user.email,this.state.user.senha)
+            .then( res => {
             jumpTo('/login')
         })
         }
@@ -58,7 +66,43 @@ class Signup extends Component {
                 <div className="row">
                     <div className="col">
                         <div className="form-group">
-                            <label>Email</label>
+                            <label>Sobrenome</label>
+                            <input type="text" className="form-control" name="sobrenome" value={this.state.user.sobrenome}
+                            onChange = {e => this.updateField(e)} placeholder="Sobrenome" />
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <div className="form-group">
+                            <label>Telefone</label>
+                            <input type="text" className="form-control" name="telefone" value={this.state.user.telefone}
+                            onChange = {e => this.updateField(e)} placeholder="Telefone" />
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <div className="form-group">
+                            <label>CPF</label>
+                            <input type="text" className="form-control" name="cpf" value={this.state.user.cpf}
+                            onChange = {e => this.updateField(e)} placeholder="CPF" />
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <div className="form-group">
+                            <label>Data de Nascimento</label>
+                            <input type="date" className="form-control" name="data_nasc" value={this.state.user.data_nasc}
+                            onChange = {e => this.updateField(e)} />
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <div className="form-group">
+                            <label>E-mail</label>
                             <input type="email" className="form-control" name="email" value={this.state.user.email}
                             onChange = {e => this.updateField(e)} placeholder="E-mail" />
                         </div>
