@@ -4,6 +4,7 @@ import Logo from '../template/Logo'
 
 import {connect } from 'react-redux'
 import {postToken} from '../../redux/action/tokenAction'
+import jumpTo from '../../services/navigation'
 
 
 class Login extends Component {
@@ -22,7 +23,10 @@ class Login extends Component {
             event.preventDefault()
             alert("Há campos vazios")
         }else{
-        this.props.postToken(this.state.user.email,this.state.user.senha)
+        this.props.postToken(this.state.user.email,this.state.user.senha).then(res => {
+            jumpTo('/cardapio')
+            return res
+        })
         }
     }
 

@@ -30,6 +30,7 @@ export default class LeitorQR extends Component{
                 onScan={this.handleScan}
                 style={{ width:'100%'}}
                 facingMode="user"
+                legacyMode={true}
                  />
                 <p>{this.state.result}</p>    
             </Main>

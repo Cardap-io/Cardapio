@@ -22,14 +22,19 @@ export default class Cardapio extends Component {
     }
 
 
-    componentDidMount(){
+    /*componentDidMount(){
         axios.all([axios.get(baseURL+'cardapio'),
                    axios.get(baseURL+'produtos')])
         .then(axios.spread((cardapio,produts) => {
             let name = cardapio.data.nome
             let produtos = produts.data
-            this.setState({nome:name,prod:produtos})})).catch((err)=> {})}
+            this.setState({nome:name,prod:produtos})})).catch((err)=> {})}*/
 
+    componentDidMount(){
+        axios.get('http://www.cadapiounip.epizy.com/public/fornecedor/qrcode').then(resp => {
+            this.setState({prod:resp.data})
+        }).catch((err)=> {})
+    }
 
     /*renderCardapio(prod){
         return _.map(prod, prod => {
@@ -109,7 +114,7 @@ export default class Cardapio extends Component {
 
     }*/
 
-    renderNome(){
+    /*renderNome(){
         return(
         <React.Fragment>
             <div className="row">
@@ -119,14 +124,14 @@ export default class Cardapio extends Component {
             </div>
         </React.Fragment>
             )
-    }
+    }*/
 
     render(){
         return(
             <React.Fragment>
                 <Main>
                 <div className="container-fluid col-8">
-                    {this.renderNome()}
+                    {/*this.renderNome()*/}
                     {this.renderCardapio()}
                 </div>
                 </Main>

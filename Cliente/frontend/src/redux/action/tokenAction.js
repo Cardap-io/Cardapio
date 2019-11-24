@@ -17,7 +17,9 @@ export const postToken = (email, password) => dispatch => {
         type: POST_TOKEN_SUCCESS,
         payload: res
       })
+      if(res.status == 200 || res.status == 201){
       return res
+    }
     })
     .catch(error => {
       dispatch({
@@ -31,7 +33,7 @@ export const postToken = (email, password) => dispatch => {
 export const insertToken = () => dispatch => {
   let token
   if (localStorage.getItem('auth')) {
-    token = JSON.parse(localStorage.getItem('auth'))
+    token = JSON.parse(sessionStorage.getItem('auth'))
     dispatch({
       type: INSERT_TOKEN_SUCCESS,
       payload: token

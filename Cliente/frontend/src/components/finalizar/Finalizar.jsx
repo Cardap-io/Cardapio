@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import { connect } from 'react-redux'
 import {getCheckoutUrl} from '../../redux/action/finalizarAction'
-import {getCartByUserId} from '../../redux/action/carrinhoAction'
+import {getCart} from '../../redux/action/carrinhoAction'
 
 class Finalizar extends Component{
     constructor(props){
@@ -80,7 +80,7 @@ const mapStoreToProps = state => ({
   })
   const mapDispatchToProps = dispatch => ({
     getCheckoutUrl:(cartId)=>dispatch(getCheckoutUrl(cartId)),
-    getCartByUserId:()=>dispatch(getCartByUserId())
+    getCart:()=>dispatch(getCart())
   })
   
   const aaa = connect(mapStoreToProps, mapDispatchToProps)(Finalizar)
